@@ -27,14 +27,17 @@
     a:hover { text-decoration: underline; }
     .muted { color: #666; font-size: .95rem; }
     button {
-      padding: 10px 16px;
+      padding: 12px 18px;
       border: 0;
       border-radius: 10px;
       cursor: pointer;
       background:#0b57d0;
       color:#fff;
       font-weight:600;
+      font-size: 1rem;
+      transition: background .2s ease;
     }
+    button:hover { background:#094bb5; }
     @media (prefers-color-scheme: dark) {
       body { color: #e6e6e6; background: #0f1115; }
       .card { background:#161a24; border-color:#23283a; }
@@ -57,14 +60,13 @@
       <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a>.
     </p>
     <p>
-      Your request will be processed within up to 30 days. All data linked to your account will be permanently removed
-      from our systems, except where retention is required by law (for example, for compliance or audit purposes).
-      We may verify your identity by emailing your registered address.
+      Your request will be processed within up to 30 days. All data linked to your account will be permanently removed,
+      except where retention is required by law (for example, for compliance or audit purposes).
     </p>
-    <p>
-      Quick start: use the button below to open an email with the required details pre-filled.
-    </p>
-    <button id="mailBtn">Request deletion via email</button>
+    <p>Click below to open your email app with the request pre-filled / Haz clic abajo para abrir tu gestor de correo con el mensaje listo:</p>
+    <a id="mailLink">
+      <button type="button">📩 Send deletion request / Enviar solicitud</button>
+    </a>
   </section>
 
   <h2 style="margin-top:2.5rem">🇪🇸 Información en español</h2>
@@ -77,10 +79,9 @@
     <p>
       Procesaremos tu solicitud en un plazo máximo de 30 días. Eliminaremos todos los datos vinculados a tu cuenta,
       salvo cuando la ley exija conservarlos (por ejemplo, por obligaciones fiscales o legales).
-      Podemos verificar tu identidad contactando al correo electrónico registrado.
     </p>
     <p class="muted">
-      Sugerimos incluir: nombre completo, correo registrado en la app y un breve mensaje indicando que deseas eliminar tu cuenta.
+      Incluye: nombre completo, correo registrado en la app, y un breve mensaje indicando que deseas eliminar tu cuenta.
     </p>
   </section>
 
@@ -89,4 +90,37 @@
     <ul>
       <li>Change or revoke permissions (Location, Camera, Storage) directly from your device settings. / Cambia o revoca permisos (Ubicación, Cámara, Almacenamiento) desde los ajustes del dispositivo.</li>
       <li>Request data access, correction or deletion by email at <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a>. / Solicita acceso, corrección o eliminación de datos al correo <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a>.</li>
-      <li>See
+      <li>See our full privacy policy here: <a href="https://fermin177.github.io/dobleu-privacy-policy/">Privacy Policy / Política de Privacidad</a>.</li>
+    </ul>
+  </section>
+
+  <footer class="muted" style="margin-top:32px">
+    © <span id="y"></span> WONTEC Soluciones Innovadoras • DOBLEU
+  </footer>
+
+  <script>
+    // Fecha actual en pie de página
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Enlace mailto con asunto y cuerpo prellenados
+    const subject = encodeURIComponent('Solicitud de eliminación de cuenta / Account deletion request - DOBLEU');
+    const body = encodeURIComponent(
+`Hola equipo DOBLEU / Hello DOBLEU Team,
+
+Deseo solicitar la eliminación de mi cuenta y de todos mis datos personales asociados. /
+I wish to request the deletion of my account and all associated personal data.
+
+Correo registrado / Registered email: __________
+Nombre completo / Full name: __________
+Teléfono (opcional) / Phone (optional): __________
+
+Entiendo que algunos registros pueden conservarse si la ley lo requiere. /
+I understand that certain records may be retained if required by law.
+
+Gracias / Thank you.`
+    );
+    const mailToLink = `mailto:contacto@wontec.mx?cc=brayan.fermin.garcia.perez@gmail.com&subject=${subject}&body=${body}`;
+    document.getElementById('mailLink').setAttribute('href', mailToLink);
+  </script>
+</body>
+</html>
