@@ -26,23 +26,32 @@
     a { color: #0b57d0; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .muted { color: #666; font-size: .95rem; }
-    button {
-      padding: 12px 18px;
-      border: 0;
-      border-radius: 10px;
-      cursor: pointer;
-      background:#0b57d0;
-      color:#fff;
-      font-weight:600;
-      font-size: 1rem;
-      transition: background .2s ease;
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
     }
-    button:hover { background:#094bb5; }
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .gmail { background: #d93025; }
+    .outlook { background: #0078d4; }
+    .mailto { background: #555; }
+    .btn:hover { opacity: .9; }
     @media (prefers-color-scheme: dark) {
       body { color: #e6e6e6; background: #0f1115; }
       .card { background:#161a24; border-color:#23283a; }
       a { color:#8ab4ff; }
-      button { background:#3b82f6; }
     }
   </style>
 </head>
@@ -63,35 +72,39 @@
       Your request will be processed within up to 30 days. All data linked to your account will be permanently removed,
       except where retention is required by law (for example, for compliance or audit purposes).
     </p>
-    <p>Click below to open your email app with the request pre-filled / Haz clic abajo para abrir tu gestor de correo con el mensaje listo:</p>
-    <a id="mailLink">
-      <button type="button">📩 Send deletion request / Enviar solicitud</button>
-    </a>
+
+    <p>Quick start: choose your email provider to send the deletion request automatically / 
+      Inicio rápido: elige tu servicio de correo para enviar la solicitud automáticamente:</p>
+
+    <div class="buttons">
+      <a class="btn gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@wontec.mx&cc=brayan.fermin.garcia.perez@gmail.com&su=Account%20and%20Data%20Deletion%20Request%20-%20DOBLEU&body=Hello%20DOBLEU%20team%2C%0A%0AI%20request%20the%20deletion%20of%20my%20account%20and%20all%20personal%20data%20associated.%0A%0ARegistered%20email%3A%20__________%0AFull%20name%3A%20__________%0APhone%20(optional)%3A%20__________%0A%0AI%20understand%20that%20some%20records%20may%20be%20retained%20if%20required%20by%20law.%0A%0AThank%20you.">
+        📧 Send via Gmail
+      </a>
+
+      <a class="btn outlook" href="https://outlook.live.com/owa/?path=/mail/action/compose&to=contacto@wontec.mx&cc=brayan.fermin.garcia.perez@gmail.com&subject=Account%20and%20Data%20Deletion%20Request%20-%20DOBLEU&body=Hello%20DOBLEU%20team%2C%0A%0AI%20request%20the%20deletion%20of%20my%20account%20and%20all%20personal%20data%20associated.%0A%0ARegistered%20email%3A%20__________%0AFull%20name%3A%20__________%0APhone%20(optional)%3A%20__________%0A%0AI%20understand%20that%20some%20records%20may%20be%20retained%20if%20required%20by%20law.%0A%0AThank%20you.">
+        💙 Send via Outlook / Hotmail
+      </a>
+
+      <a class="btn mailto" href="mailto:contacto@wontec.mx?cc=brayan.fermin.garcia.perez@gmail.com&subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20cuenta%20%2F%20Account%20deletion%20request%20-%20DOBLEU&body=Hola%20equipo%20DOBLEU%20%2F%20Hello%20DOBLEU%20Team%2C%0A%0ADeseo%20solicitar%20la%20eliminaci%C3%B3n%20de%20mi%20cuenta%20y%20de%20todos%20mis%20datos%20personales%20asociados.%0A%0ACorreo%20registrado%20%2F%20Registered%20email%3A%20__________%0ANombre%20completo%20%2F%20Full%20name%3A%20__________%0ATel%C3%A9fono%20(opcional)%20%2F%20Phone%20(optional)%3A%20__________%0A%0AEntiendo%20que%20algunos%20registros%20pueden%20conservarse%20si%20la%20ley%20lo%20requiere.%0A%0AGracias%20%2F%20Thank%20you.">
+        ✉️ Send via Default Mail App
+      </a>
+    </div>
   </section>
 
   <h2 style="margin-top:2.5rem">🇪🇸 Información en español</h2>
   <section class="card">
     <p>
       Para solicitar la eliminación de tu cuenta y de tus datos personales de DOBLEU, envíanos un correo a  
-      <a href="mailto:brayan.fermin.garcia.perez@gmail.com">brayan.fermin.garcia.perez@gmail.com</a> o  
-      <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a>.
+      <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a> o  
+      <a href="mailto:brayan.fermin.garcia.perez@gmail.com">brayan.fermin.garcia.perez@gmail.com</a>.
     </p>
     <p>
       Procesaremos tu solicitud en un plazo máximo de 30 días. Eliminaremos todos los datos vinculados a tu cuenta,
-      salvo cuando la ley exija conservarlos (por ejemplo, por obligaciones fiscales o legales).
+      salvo cuando la ley exija conservarlos.
     </p>
     <p class="muted">
-      Incluye: nombre completo, correo registrado en la app, y un breve mensaje indicando que deseas eliminar tu cuenta.
+      Incluye: nombre completo, correo registrado en la app y un breve mensaje indicando que deseas eliminar tu cuenta.
     </p>
-  </section>
-
-  <section class="card" style="margin-top:2.5rem">
-    <h2>🔐 Other privacy choices / Otras opciones de privacidad</h2>
-    <ul>
-      <li>Change or revoke permissions (Location, Camera, Storage) directly from your device settings. / Cambia o revoca permisos (Ubicación, Cámara, Almacenamiento) desde los ajustes del dispositivo.</li>
-      <li>Request data access, correction or deletion by email at <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a>. / Solicita acceso, corrección o eliminación de datos al correo <a href="mailto:contacto@wontec.mx">contacto@wontec.mx</a>.</li>
-      <li>See our full privacy policy here: <a href="https://fermin177.github.io/dobleu-privacy-policy/">Privacy Policy / Política de Privacidad</a>.</li>
-    </ul>
   </section>
 
   <footer class="muted" style="margin-top:32px">
@@ -99,28 +112,8 @@
   </footer>
 
   <script>
-    // Fecha actual en pie de página
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Enlace mailto con asunto y cuerpo prellenados
-    const subject = encodeURIComponent('Solicitud de eliminación de cuenta / Account deletion request - DOBLEU');
-    const body = encodeURIComponent(
-`Hola equipo DOBLEU / Hello DOBLEU Team,
-
-Deseo solicitar la eliminación de mi cuenta y de todos mis datos personales asociados. /
-I wish to request the deletion of my account and all associated personal data.
-
-Correo registrado / Registered email: __________
-Nombre completo / Full name: __________
-Teléfono (opcional) / Phone (optional): __________
-
-Entiendo que algunos registros pueden conservarse si la ley lo requiere. /
-I understand that certain records may be retained if required by law.
-
-Gracias / Thank you.`
-    );
-    const mailToLink = `mailto:contacto@wontec.mx?cc=brayan.fermin.garcia.perez@gmail.com&subject=${subject}&body=${body}`;
-    document.getElementById('mailLink').setAttribute('href', mailToLink);
   </script>
 </body>
 </html>
+
